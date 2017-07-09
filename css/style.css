@@ -1,0 +1,328 @@
+body {
+  font-family: 'Sue Ellen Francisco', cursive;
+}
+.header {
+  height: 75px;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 60px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+.rows {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  width: 500px;
+  height: 160px;
+}
+.cells {
+  height: 150px;
+  width: 150px;
+  margin-left: 6.25px;
+  margin-right: 6.25px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  position: relative;
+  display: inline-block;
+}
+.lines {
+  position: relative;
+  width: 500px;
+  height: 10px;
+  clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+}
+.line_container {
+  position: absolute;
+  left:0;
+  right:0;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: transparent;
+  
+  width: 500px;
+  height: 500px;
+  z-index: -1;
+}
+#first_vert, #second_vert {
+  transform: rotate(90deg);
+  position: absolute;
+  top: 245px;
+}
+#first_vert {
+  background-color: green;
+  left: -85.75px;
+}
+#second_vert {
+  animation-delay: 1s;
+  background-color: yellow;
+  left: 81.25px;
+}
+#first_horz {
+  background-color: blue;
+  top: 163px;
+}
+#second_horz {
+  background-color: red;
+  animation-delay: 1s;
+  top: 317.5px;
+}
+.horizontal_animation_reveal {
+  animation-duration: 1s;
+  animation-name: reveal_horizontal;
+  -webkit-animation-duration: 1.6s;
+  -webkit-animation-name: reveal_horizontal;
+  animation-fill-mode: forwards;
+}
+@keyframes reveal_horizontal {
+  0% {clip-path: polygon(0 0, 0 0, 0 100%, 0 100%)}
+  100% {clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)}
+}
+.horizontal_animation_hide {
+  animation-duration: 1s;
+  animation-name: hide_horizontal;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  -webkit-animation-duration: 1.6s;
+  -webkit-animation-name: hide_horizontal;
+  animation-fill-mode: forwards;
+}
+@keyframes hide_horizontal {
+  0% {clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)}
+  100% {clip-path: polygon(0 0, 0 0, 0 100%, 0 100%)}
+}
+
+.X {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  top: 37.5px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+.X:before,.X:after {
+  position: absolute;
+  content: '';
+  top: 32.5px;
+  background-color: black;
+}
+.X:before {
+  width:75px;
+  height:10px;
+  -webkit-transform:rotate(45deg);
+  -moz-transform:rotate(45deg);
+  transform: rotate(45deg);
+  animation-duration: 0.35s;
+  animation-name: exes1;
+  -webkit-animation-duration: 0.35s;
+  -webkit-animation-name: exes1;
+  animation-fill-mode: forwards;
+  clip-path: polygon(0 0 , 0 100%, 0 0,  0 100%)
+}
+.X:after {
+  width:75px;
+  height:10px;
+  -webkit-transform:rotate(-45deg);
+  -moz-transform:rotate(-45deg);
+  transform: rotate(-45deg);
+  animation-duration: 0.35s;
+  animation-delay: 0.35s;
+  animation-name: exes2;
+  -webkit-animation-duration: 0.35s;
+  -webkit-animation-name: exes2;
+  animation-fill-mode: forwards;
+  clip-path: polygon(100% 0, 100% 100%, 100% 0, 100% 100%)
+}
+@keyframes exes1 {
+  0% {clip-path: polygon(0 0 , 0 100%, 0 0,  0 100%)}
+  100% {clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0)}
+}
+@keyframes exes2 {
+    0% {clip-path: polygon(100% 0, 100% 100%, 100% 0, 100% 100%)}
+  100% {clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0)}
+}
+.O {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 10px solid black;
+  margin-top: 37.5px;
+  margin-left: auto;
+  margin-right: auto;
+  animation-duration: 0.35s;
+  animation-name: ohs;
+  -webkit-animation-duration: 0.35s;
+  -webkit-animation-name: ohs;
+  animation-fill-mode: forwards;
+}
+@keyframes ohs {
+  0% {clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%)}
+  10% {clip-path: polygon(50% 50%, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0)}
+  20% {clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 0, 100% 0, 100% 0, 100% 0, 100% 0, 100% 0, 100% 0)}
+  30% {clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 50%, 100% 50%, 100% 50%, 100% 50%, 100% 50%, 100% 50%)}
+  40% {clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%)}
+  50% {clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%)}
+  60% {clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 100%, 0% 100%, 0% 100%)}
+  70% {clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 50%, 0% 50%, 0% 50%)}
+  80% {clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 50%, 0% 0%, 0% 0%)}
+  90% {clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 50%, 0% 0%, 50% 0%)}
+  100% {clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 50%, 0% 0%, 50% 0%)}
+}
+@keyframes winning {
+  0% {background-color: white}
+  20% {background-color: red}
+  40% {background-color: blue}
+  60% {background-color: green}
+  80% {background-color: yellow}
+  100% {background-color: white}
+}
+.winner {
+  animation-name: winning;
+  animation-duration: 5s;
+  animation-delay: 0.1s;
+  animation-iteration-count: infinite;
+}
+.reset {
+  margin-top: 25px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.messages {
+  text-align: center;
+  position: relative;
+  margin-top: -350px;
+  background-color: transparent;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.tokens {
+  opacity: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+#player_turn {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  width: 500px;
+  text-align: center;
+  opacity: 0;
+  font-size: 18px;
+  font-family: 'Comfortaa', cursive;
+}
+.game_winner {
+  background-color: white;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  border-top: 4px solid red;
+  border-bottom: 4px solid blue;
+  border-left: 4px solid yellow;
+  border-right: 4px solid green;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: none;
+  font-size: 36px;
+  color: black;
+}
+.buttons {
+  transition-timing-function: ease-in-out;
+  transition: all 0.55s;
+  background-color: white;
+  border-top: 3px outset red;
+  border-bottom: 3px solid blue;
+  border-left: 3px solid yellow;
+  border-right: 3px solid green;
+  font-size: 18px;
+  font-family: 'Comfortaa', cursive;
+}
+.buttons:hover {
+  border-top: 3px solid yellow;
+  border-bottom: 3px solid green;
+  border-left: 3px solid blue;
+  border-right: 3px solid red;
+  cursor: pointer;
+}
+#next_game {
+  opacity: 0;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 2.5px;
+  padding-bottom: 2.5px;
+}
+#reset {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 2.5px;
+  padding-bottom: 2.5px;
+}
+#one_player, #two_players {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 3.5px;
+  padding-bottom: 3.5px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+#X, #O {
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 2.5px;
+  padding-bottom: 2.5px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+#reset:active {
+  border-top: 3px solid red;
+  border-bottom: 3px solid red;
+  border-left: 3px solid red;
+  border-right: 3px solid red;
+}
+#O:active {
+  border-top: 3px solid red;
+  border-bottom: 3px solid red;
+  border-left: 3px solid red;
+  border-right: 3px solid red;
+}
+#X:active {
+  border-top: 3px solid blue;
+  border-bottom: 3px solid blue;
+  border-left: 3px solid blue;
+  border-right: 3px solid blue;
+}
+#one_player:active, #two_players:active {
+  border-top: 3px solid yellow;
+  border-bottom: 3px solid yellow;
+  border-left: 3px solid yellow;
+  border-right: 3px solid yellow;
+}
+#next_game:active {
+  border-top: 3px solid green;
+  border-bottom: 3px solid green;
+  border-left: 3px solid green;
+  border-right: 3px solid green;
+}
+#score {
+  text-align: right;
+  position: absolute;
+  font-size: 26px;
+  background-color: transparent;
+  width: 120px;
+  top: 25px;
+}

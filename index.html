@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Naughts and Crosses</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
+<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Sue+Ellen+Francisco|Comfortaa'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  
+
+<div class='header'><span style="color:blue">Naughts</span> and <span style="color:green">Crosses</span></div>
+<div id='player_turn'>Turn</div>
+<div class='line_container'>
+  <div class='lines' id='first_vert'></div>
+  <div class='lines' id='first_horz'></div>
+  <div class='lines' id='second_vert'></div>
+  <div class='lines' id='second_horz'></div>
+</div>
+<div class='rows'>
+  <div class='cells spaces' id='1'>
+    <div></div>
+  </div>
+  <div class='cells spaces' id='2'>
+    <div></div>
+  </div>
+  <div class='cells spaces' id='3'>
+    <div></div>
+  </div>
+</div>
+<div class='rows'>
+  <div class='cells spaces' id='4'>
+    <div></div>
+  </div>
+  <div class='cells spaces' id='5'>
+    <div></div>
+  </div>
+  <div class='cells spaces' id='6'>
+    <div></div>
+  </div>
+</div>
+<div class='rows'>
+  <div class='cells spaces' id='7'>
+    <div></div>
+  </div>
+  <div class='cells spaces' id='8'>
+    <div></div>
+  </div>
+  <div class='cells spaces' id='9'>
+    <div></div>
+  </div>
+</div>
+
+<div class='reset'>
+  <a id='reset' class='buttons'>Reset</a>
+</div>
+<div id='score'>
+  <span id='score_title'></span>
+  <div>
+    <span style="color:blue">
+      <span class='score1'></span>
+    </span>
+  </div>
+  <div>
+    <span style="color:red">
+      <span class='score2'></span>
+    </span>
+  </div>
+</div>
+
+<div class='messages'>
+  <div class='game_winner'></div>
+  <div><br>
+    <a id='next_game' class='buttons'>Next Game</a>
+  </div>
+  <div>
+    <a class='game_type buttons' id='one_player'>One Player</a>
+    <a class='game_type buttons' id='two_players'>Two Players</a>
+  </div>
+  <div>
+    <a class='tokens buttons' id='X' class='buttons'>X</a>
+    <a class='tokens buttons' id='O'>O</a>
+  </div>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+
+    <script src="js/index.js"></script>
+
+</body>
+</html>
