@@ -1,3 +1,3 @@
-A Pen created at CodePen.io. You can find this one at http://codepen.io/znicholasbrown/pen/EmqdbK.
+A Javascript game of Naughts and Crosses.
 
- 
+Still has some bugs related to the AI Loop. 
