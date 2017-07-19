@@ -1,5 +1,6 @@
-
-  var game = game || {
+var timeouts = [];
+  
+var game = game || {
     current_game: false,
     p1_score: 0,
     p2_score: 0,
@@ -155,29 +156,35 @@
       game.visuals.hideTokenChoice();
       game.visuals.showGameBoard();
       game.visuals.showPlayerScores();
-      setTimeout(function() {
+      timeouts.push(setTimeout(function() {
         game.functions.play();
-      }, 1250);
+      }, 1250));
     },
     play: function () {
       game.current_game = true;
       game.visuals.showPlayerTurn();
       if(game.turn === 2 && game.computerPlayer) {
-        setTimeout(function() {
-          game.functions.computerMoves();}, 1000);
+        timeouts.push(setTimeout(function() {
+          game.functions.computerMoves();}, 1000));
       } else {
-        $('.spaces').on("click", function() {
-          game.functions.playerMoves(this.id)});
+        $('.spaces').on("mouseup", function() {
+          game.functions.playerMoves(this.id);
+          
+        });
+        
       }
     },
     playerMoves: function (space) {
+      //console.log("player");
       var token = game.turn === 1 ? game.p1token : game.p2token;
       if (game.board_moves[space] == '' && game.current_game) {
+        $(".spaces").off("mouseup");
         game.functions.boardFill(space, token);
         game.functions.endTurn(token);
       }
     },
     computerMoves: function () {
+      //console.log("computer");
       var token = game.p2token,
           token2 = token == 'X' ? 'O' : 'X';
       var space = game.computer.decide(token, token2);
@@ -252,15 +259,23 @@
       game.p2_score = 0;
       game.current_game = false;
       game.visuals.hideGameBoard();
-      game.variables();
+      for (var i = 0; i < timeouts.length; i++) {
+        clearTimeout(timeouts[i]);
+      };
       game.gameStart();
+      
     },
     nextGame: function () {
+      $(this).off();
       game.visuals.boardClear();
       game.visuals.hideNextGame();
       game.visuals.hideWinMessage();
       game.variables();
+      game.current_game = false;
       game.visuals.showPlayerScores();
+      for (var i = 0; i < timeouts.length; i++) {
+        clearTimeout(timeouts[i]);
+      };
       game.visuals.hidePlayerTurn();
       game.functions.play();
     }
